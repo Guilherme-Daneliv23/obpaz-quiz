@@ -1,0 +1,30 @@
+body {
+  /* background-image: url('./assets/images/backgroud.png'); */
+  background-color: #38B6FF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+}
+
+  .main_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    
+  }
+
+@media screen and (min-width: 768px) {
+  .main_div   {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+  }
+
+  body  {
+    height: 100vh;
+  }
+}
