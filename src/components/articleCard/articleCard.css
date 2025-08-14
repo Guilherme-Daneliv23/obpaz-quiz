@@ -1,0 +1,37 @@
+.article_card  {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-family: "Press Start 2P", system-ui;
+    background-color: #00175D;
+    border-radius: 10px;
+}
+
+.article_card_img   {
+    width: 30%;
+    margin-bottom: 30px;
+}
+
+.article_card_title {
+    font-size: 15px;
+    color: #fdfdfd;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .article_card   {
+        flex-direction: row;
+    }
+
+    .article_card_img   {
+        margin-bottom: 0;
+        width: 5%;
+    }
+
+
+}

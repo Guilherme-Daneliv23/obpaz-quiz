@@ -12,7 +12,7 @@ export const FeedbackCard = (props : any) => {
                 <h3 className="feedback_explnation_title">FEEDBACK</h3>
                 <p className="feedback_explanatin_text">{props.text}</p>
                 <h4 className="feedback_explnation_title">SAIBA +</h4> 
-                <a rel="stylesheet" href={props.feedbackLinkDoc}><img className="feedback_explnation_img" src={file_icon} alt="ícone de documento para leitura"/></a>             
+                <a target="_blank" rel="stylesheet" href={props.feedbackLinkDoc}><img className="feedback_explnation_img" src={file_icon} alt="ícone de documento para leitura"/></a>             
             </div>
         </div>
     )

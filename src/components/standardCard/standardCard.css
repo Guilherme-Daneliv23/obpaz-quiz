@@ -1,0 +1,18 @@
+.standard_card   {
+    width: 80%;
+    height: auto;
+    background-image: url('../../assets/images/backgroud.png');
+    padding: 20px;
+    font-family: "Press Start 2P", system-ui;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .standard_card   {
+        width: 80%;
+        height: 80%;
+    }
+}

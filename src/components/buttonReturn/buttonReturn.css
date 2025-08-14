@@ -1,0 +1,11 @@
+.button_return{
+    width: 150px;
+    height: 50px;
+    background-color: #00175D;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fdfdfd;
+    font-family: "Press Start 2P", system-ui;
+}

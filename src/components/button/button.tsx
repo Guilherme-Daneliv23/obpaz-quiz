@@ -2,11 +2,12 @@ import './button.css';
 
 export const Button = (props: any) => {
     return  (
-        <button 
+        <a  
+            href={props.linkHref} 
             className="button-style" 
             style={{backgroundColor: props.backgroundColor}}
         >
             {props.texto}
-        </button>
+        </a>
     )
 }

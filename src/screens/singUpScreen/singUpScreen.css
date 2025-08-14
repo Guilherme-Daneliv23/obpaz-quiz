@@ -1,0 +1,17 @@
+.singUp_screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    background-image: url(../../assets/images/backgroud.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px){
+    .singUp_screen {
+        width: 100vw;
+        height: 100vh;
+        padding: 0;
+    }
+}

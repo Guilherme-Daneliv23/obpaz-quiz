@@ -1,0 +1,44 @@
+.credits_card   {
+    width: 80%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background-color: #00175D;
+    border-radius: 10px;
+}
+
+.credits_card_img   {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.credits_card_text  {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    color: #fdfdfd;
+    width: 100%;
+    text-align: center;
+}
+
+.credits_card_link  {
+    list-style: none;
+    width: 150px;
+    height: 50px;
+    color: #00175D;
+    font-family: "Press Start 2P", system-ui;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .credits_card   {
+        width: 35%;
+    }
+}
