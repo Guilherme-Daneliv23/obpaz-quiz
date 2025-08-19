@@ -1,6 +1,6 @@
 .credits_card   {
     width: 80%;
-    height: 400px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,6 +8,7 @@
     padding: 40px 20px;
     background-color: #00175D;
     border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 .credits_card_img   {
@@ -39,6 +40,6 @@
 
 @media screen and (min-width: 768px) {
     .credits_card   {
-        width: 35%;
+        width: 60%;
     }
 }

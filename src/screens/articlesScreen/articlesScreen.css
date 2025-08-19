@@ -1,0 +1,30 @@
+.articles_screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #38B6FF, #0275C2);
+    width: 100vw;
+    height: auto;
+}
+
+.articles_screen_content    {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .articles_screen    {
+        height: 100vh;
+    }
+
+    .articles_screen_content    {
+        height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}

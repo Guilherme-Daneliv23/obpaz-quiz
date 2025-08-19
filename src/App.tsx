@@ -4,13 +4,16 @@ import { LoginScreen } from './screens/loginScreen/loginScreen'
 import { SingInScreen } from './screens/singInScreen/singInScreen'
 import { SingUpScreen } from './screens/singUpScreen/singUpScreen'
 import { RankingScreen } from './screens/rankingScreen/rankingScreen'
+import { HowPlayScreen } from './screens/howPlayScreen/howPlayScreen'
+import { ArticlesScreen } from './screens/articlesScreen/articlesScreen'
+import { CreditsScreen } from './screens/creditsScreen/creditsScreen'
 import './App.css'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <RankingScreen/>
+    <SingUpScreen/>
   )
 }
 
