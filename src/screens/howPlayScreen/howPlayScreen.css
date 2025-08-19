@@ -1,0 +1,22 @@
+.howPlay_screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #38B6FF, #0275C2);
+    width: 100vw;
+    height: auto;
+}
+
+.howPlay_screen_content {
+    text-align: center;
+    font-size: 15px;
+    color: #00175D;
+    margin: 40px 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .howPlay_screen {
+        height: 100vh;
+    }
+}
