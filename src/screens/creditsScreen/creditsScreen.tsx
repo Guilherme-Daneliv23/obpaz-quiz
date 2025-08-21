@@ -29,7 +29,7 @@ export const CreditsScreen = () => {
                 </div>
 
                 <ButtonReturn
-                    linkHref='#'
+                    linkHref='/home'
                 />
             </StandardCard>
         </div>

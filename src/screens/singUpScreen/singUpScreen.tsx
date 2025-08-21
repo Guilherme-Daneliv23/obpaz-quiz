@@ -13,11 +13,14 @@ export const SingUpScreen = () => {
     const [success, setSuccess] = useState('')
 
     const handleSignUp = async () => {
-        console.log('Função de cadastro chamada');
+        if (!nome || !email || !senha) {
+            setError("Preencha todos os campos");
+            return;
+        }
         setError('')
         setSuccess('')
 
-        const {data: signUpData, error} = await supabase.auth.signUp({
+        const {data, error} = await supabase.auth.signUp({
             email: email,
             password: senha,
             options: {
@@ -26,23 +29,12 @@ export const SingUpScreen = () => {
                 },
             },
         })
+        
 
-        if (signUpData?.user) {
-            await supabase
-                .from('profiles')
-                .insert([
-                {
-                    id: signUpData.user.id,
-                    full_name: nome
-                }
-                ]);
-        }
-
-
-        if(error)   {
-            setError(error.message)
-        } else {
-            setSuccess("Cadastro realizado com sucesso! verifique o seu email!");
+        if(error) { 
+            setError(error.message) 
+        } else { 
+            setSuccess("Cadastro realizado com sucesso! Agora vá até o seu email para confirma-lo e fazer o login!"); 
         }
     }
 

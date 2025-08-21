@@ -40,7 +40,7 @@ export const RankingScreen = () =>  {
                 </div>
 
                 <ButtonReturn
-                    linkHref='#'
+                    linkHref='/home'
                 />
             </StandardCard>
         </div>

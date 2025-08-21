@@ -30,7 +30,7 @@ export const ArticlesScreen = () => {
                 </div>
 
                  <ButtonReturn
-                    linkHref='#'
+                    linkHref='/home'
                 />
             </StandardCard>
         </div>
