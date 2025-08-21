@@ -23,7 +23,7 @@ export const HowPlayScreen = () =>  {
 
 
                 <ButtonReturn
-                    linkHref='#'
+                    linkHref='/home'
                 />
             </StandardCard>
         </div>

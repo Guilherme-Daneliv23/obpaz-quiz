@@ -1,3 +1,6 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+//Telas
 import { InitialScreen } from './screens/initialScreen/initialScreen'
 import { GameScreen } from './screens/gameScreen/gameScreen'
 import { LoginScreen } from './screens/loginScreen/loginScreen'
@@ -10,10 +13,20 @@ import { CreditsScreen } from './screens/creditsScreen/creditsScreen'
 import './App.css'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <SingUpScreen/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginScreen />} />
+        <Route path="/cadastro" element={<SingUpScreen />} />
+        <Route path="/login" element={<SingInScreen />} />
+        <Route path="/home" element={<InitialScreen />} />
+        <Route path="/game" element={<GameScreen />} />
+        <Route path="/ranking" element={<RankingScreen />} />
+        <Route path="/howplay" element={<HowPlayScreen />} />
+        <Route path="/articles" element={<ArticlesScreen />} />
+        <Route path="/credits" element={<CreditsScreen />} />
+      </Routes>
+    </Router>
   )
 }
 

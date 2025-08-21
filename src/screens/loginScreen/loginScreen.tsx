@@ -7,12 +7,12 @@ export const LoginScreen = () => {
         <div className='login_screen'>
             <LoginHomeModel>
                 <Button
-                    linkHref="#"
+                    linkHref='/login'
                     backgroundColor='#0275C2'
                     texto='Entrar'
                 />
                 <Button
-                    linkHref="#"
+                    linkHref='/cadastro'
                     backgroundColor='#38B6FF'
                     texto='Cadastrar'
                 />

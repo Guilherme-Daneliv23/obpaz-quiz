@@ -7,27 +7,27 @@ export const InitialScreen = () => {
         <div className='initial_screen'>
             <LoginHomeModel>
             <Button
-                linkHref="#"
+                linkHref="/game"
                 backgroundColor='#0275C2'
                 texto='Jogar'
             />
             <Button
-                linkHref="#"
+                linkHref="/ranking"
                 backgroundColor='#0275C2'
                 texto='Ranking'
             />
             <Button
-                linkHref="#"
+                linkHref="/howplay"
                 backgroundColor='#0275C2'
                 texto='Como jogar'
             />
             <Button
-                linkHref="#"
+                linkHref="/articles"
                 backgroundColor='#0275C2'
                 texto='Artigos'
             />
             <Button
-                linkHref="#"
+                linkHref="/credits"
                 backgroundColor='#0275C2'
                 texto='Créditos'
             />

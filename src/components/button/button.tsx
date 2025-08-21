@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom'
 import './button.css';
 
 export const Button = (props: any) => {
      if (props.linkHref) {
     return (
-      <a
-        href={props.linkHref}
+      <Link
+        to={props.linkHref}
         className="button-style"
         style={{ backgroundColor: props.backgroundColor }}
       >
         {props.texto}
-      </a>
+      </Link>
     );
   }
 
