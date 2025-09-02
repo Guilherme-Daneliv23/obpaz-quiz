@@ -1,0 +1,33 @@
+.finalGame_align    {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    justify-content: space-between;
+}
+
+.finalGame_button-align {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.finalGame_text {
+    color: #00175D;
+    text-align: center;
+}
+
+.finalGame_hits {
+    font-size: 40px;
+    color: #38B6FF;
+}
+
+@media screen and (min-width: 768px) {
+    .finalGame_button-align {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 50%;
+    }
+}

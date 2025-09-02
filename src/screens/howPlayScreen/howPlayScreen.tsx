@@ -1,7 +1,7 @@
 import "./howPlayScreen.css"
 import { StandardCard } from "../../components/standardCard/standardCard"
 import { StandardTitle } from "../../components/standardTitle/standardTitle"
-import { ButtonReturn } from "../../components/buttonReturn/buttonReturn"
+import { ButtonRedirect } from "../../components/buttonRedirect/buttonRedirect"
 
 export const HowPlayScreen = () =>  {
     return (
@@ -21,9 +21,9 @@ export const HowPlayScreen = () =>  {
                     </p>
                 </div>
 
-
-                <ButtonReturn
+                <ButtonRedirect
                     linkHref='/home'
+                    text="VOLTAR"
                 />
             </StandardCard>
         </div>

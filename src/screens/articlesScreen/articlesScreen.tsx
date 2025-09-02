@@ -2,7 +2,7 @@ import "./articlesScreen.css"
 import { StandardCard } from "../../components/standardCard/standardCard"
 import { StandardTitle } from "../../components/standardTitle/standardTitle"
 import { ArticleCard } from "../../components/articleCard/articleCard"
-import { ButtonReturn } from "../../components/buttonReturn/buttonReturn"
+import { ButtonRedirect } from "../../components/buttonRedirect/buttonRedirect"
 
 export const ArticlesScreen = () => {
     return (
@@ -29,8 +29,9 @@ export const ArticlesScreen = () => {
                     />
                 </div>
 
-                 <ButtonReturn
+                <ButtonRedirect
                     linkHref='/home'
+                    text="VOLTAR"
                 />
             </StandardCard>
         </div>

@@ -1,7 +1,7 @@
 import './rankingScreen.css';
 import { StandardTitle } from '../../components/standardTitle/standardTitle';
 import { RankingCard } from '../../components/rankingCard/rankingCard';
-import { ButtonReturn } from '../../components/buttonReturn/buttonReturn';
+import { ButtonRedirect } from '../../components/buttonRedirect/buttonRedirect';
 import { StandardCard } from '../../components/standardCard/standardCard';
 
 export const RankingScreen = () =>  {
@@ -39,8 +39,9 @@ export const RankingScreen = () =>  {
                     />
                 </div>
 
-                <ButtonReturn
+                <ButtonRedirect
                     linkHref='/home'
+                    text="VOLTAR"
                 />
             </StandardCard>
         </div>
