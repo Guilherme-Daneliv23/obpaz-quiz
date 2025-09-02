@@ -6,19 +6,21 @@ export const QuestionCard = (props : any) =>  {
             <p className="question_question">{props.question}</p>
             <ul className="question_list_answers">
                 <li className="question_list_answer">
-                    <button className="question_list_answr_button">{props.answer1}</button>
+                    <button onClick={() => props.onAnswer("A")} className="question_list_answr_button">{props.answer1}</button>
                 </li>
 
                 <li className="question_list_answer">
-                    <button className="question_list_answr_button">{props.answer2}</button>
+                    <button onClick={() => props.onAnswer("B")} className="question_list_answr_button">{props.answer2}</button>
                 </li>
 
                 <li className="question_list_answer">
-                    <button className="question_list_answr_button">{props.answer3}</button>
+                    <button onClick={() => props.onAnswer("C")} className="question_list_answr_button">{props.answer3}</button>
                 </li>
             </ul>
 
-            <button className="question_submmit_button">RESPONDER</button>
+            {props.answered && (
+                <button onClick={props.onNext} className="question_submmit_button">PRÓXIMA</button>
+            )}
         </div>
     )
 }

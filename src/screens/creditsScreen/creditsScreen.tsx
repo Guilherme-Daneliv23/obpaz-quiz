@@ -2,7 +2,7 @@ import './creditsScreen.css'
 import { StandardCard } from '../../components/standardCard/standardCard'
 import { StandardTitle } from '../../components/standardTitle/standardTitle'
 import { CreditsCard } from '../../components/creditsCard/creditsCard'
-import { ButtonReturn } from '../../components/buttonReturn/buttonReturn'
+import { ButtonRedirect } from '../../components/buttonRedirect/buttonRedirect'
 import gui_image from  '../../assets/images/guilherme.jpg'
 import robloxia_image from '../../assets/images/robloxia.png'
 
@@ -28,8 +28,9 @@ export const CreditsScreen = () => {
                     />
                 </div>
 
-                <ButtonReturn
+                <ButtonRedirect
                     linkHref='/home'
+                    text="VOLTAR"
                 />
             </StandardCard>
         </div>
