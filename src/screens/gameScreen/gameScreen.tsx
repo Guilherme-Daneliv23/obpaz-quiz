@@ -36,10 +36,10 @@ export const GameScreen = () => {
           feedbackIcon={feedback === 'acerto' ? feedbackCorrect : feedbackWrong}
           feedbackPhrase={feedback === 'acerto' ? 'Você acertou!' : 'Você errou!'}
           text={feedback === 'acerto'
-            ? 'Parabéns, você escolheu a alternativa correta.'
-            : 'Tente novamente na próxima, você vai conseguir!'
+            ? currentQuestion.correct_feedback
+            : currentQuestion.incorrect_feedback
           }
-          feedbackLinkDoc='' // se quiser, mostre link só em certas perguntas
+          feedbackLinkDoc={currentQuestion.reference} // se quiser, mostre link só em certas perguntas
         />
       )}
 
