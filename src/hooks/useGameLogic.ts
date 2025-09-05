@@ -9,8 +9,13 @@ export interface Question {
     B: string,
     C: string,
   },
-  correct_answer: string // número da resposta correta (1, 2 ou 3)
+  correct_answer: string,
+  correct_feedback: string,
+  incorrect_feedback: string,
+  reference: string
 }
+
+
 
 export function useGameLogic() {
   const [questions, setQuestions] = useState<Question[]>([])
@@ -19,6 +24,41 @@ export function useGameLogic() {
   const [feedback, setFeedback] = useState<'acerto' | 'erro' | null>(null)
   const [answered, setAnswered] = useState(false)
   const [gameFinished, setGameFinished] = useState(false)
+
+  const updateBestScore = async () => {
+    const {data: {user}, error: userError} = await supabase.auth.getUser()
+
+    if(userError || !user)  {
+      console.error("Erro ao obter usuário: ", userError)
+      return
+    }
+
+    const {data: profile, error: fetchError} = await supabase
+      .from('profiles')
+      .select('best_score')
+      .eq('id', user.id)
+      .single()
+
+    if(fetchError)  {
+      console.error("Erro ao buscar perfil: ", fetchError)
+      return
+    }
+
+    if(!profile || score > profile.best_score)  {
+      const {error: updateError} = await supabase
+        .from('profiles')
+        .update({best_score: score})
+        .eq('id', user.id)
+
+      if(updateError) {
+        console.error("Erro ao atualizar o score: ", updateError)
+      } else {
+        console.log("Score atualizado com sucesso!")
+      }
+    } else {
+      console.log("Score mantido")
+    }
+  }
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -58,6 +98,7 @@ export function useGameLogic() {
       } else {
         setGameFinished(true)
         setFeedback(null)
+        updateBestScore()
       }
   }
 

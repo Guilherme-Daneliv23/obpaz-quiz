@@ -3,8 +3,12 @@ import { StandardTitle } from '../../components/standardTitle/standardTitle';
 import { RankingCard } from '../../components/rankingCard/rankingCard';
 import { ButtonRedirect } from '../../components/buttonRedirect/buttonRedirect';
 import { StandardCard } from '../../components/standardCard/standardCard';
+import { useRanking } from '../../hooks/useRanking';
 
 export const RankingScreen = () =>  {
+
+    const {ranking, loading, error} = useRanking()
+
     return (
         <div className='ranking_screen'>
             <StandardCard>
@@ -13,30 +17,18 @@ export const RankingScreen = () =>  {
                 />
 
                 <div className='ranking_itens'>
-                    <RankingCard
-                        number='1º'
-                        name="Nei Alberto de Sales Filho"
-                    />
+                    {loading && <p>Carregando...</p>}
+                    {error && <p>{error}</p>}
+                    {!loading && !error && ranking.length === 0 && <p>Nenhum jogador pontuou!</p>}
 
-                    <RankingCard
-                        number='2º'
-                        name="Guilherme Daneliv"
-                    />
-
-                    <RankingCard
-                        number='3º'
-                        name="Ubiratan da Costa Schier"
-                    />
-
-                    <RankingCard
-                        number='4º'
-                        name="Alice Manuela da Silva de Azambuja"
-                    />
-
-                    <RankingCard
-                        number='5º'
-                        name="Bernardo Staffens"
-                    />
+                    {ranking.map((player, index) => (
+                        <RankingCard
+                            key={player.id}
+                            number={`${index + 1}º`}
+                            name={player.full_name}
+                            score={player.best_score}
+                        />
+                    ))}
                 </div>
 
                 <ButtonRedirect
