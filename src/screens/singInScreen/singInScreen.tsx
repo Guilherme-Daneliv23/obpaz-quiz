@@ -6,30 +6,47 @@ import { useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
 import { useNavigate } from 'react-router-dom'
 
+import { Toast } from '../../components/toastCard/toastCard'
+
 export const SingInScreen = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+    const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
 
     const navigate = useNavigate()
 
     const handleSignIn = async () => {
-        setError('')
-        setSuccess('')
+        setToast(null)
+
+        if (!email.trim() || !password.trim()) {
+            setToast({
+                message: 'Por favor, preencha todos os campos antes de continuar.',
+                type: 'error'
+            })
+                return
+        }
 
         const {data, error} = await supabase.auth.signInWithPassword({
             email: email,
             password: password,
         })
 
-        if(error)   {
-            setError(error.message)
-        } else {
-            setSuccess('Login realizado com sucesso!')
-            navigate('/home')
 
+        if (error) {
+            // Mensagens mais amigáveis para alguns erros comuns
+            let friendlyMessage = 'Erro ao tentar fazer login. Verifique seu e-mail e senha.'
+
+            if (error.message.includes('Invalid login credentials')) {
+                friendlyMessage = 'E-mail ou senha incorretos.'
+            } else if (error.message.includes('User not found')) {
+                friendlyMessage = 'Usuário não encontrado.'
+            }
+
+            setToast({ message: friendlyMessage, type: 'error' })
+        } else {
+            setToast({ message: 'Login realizado com sucesso!', type: 'success' })
+            setTimeout(() => navigate('/home'), 2000)
         }
     }
 
@@ -58,8 +75,7 @@ export const SingInScreen = () => {
                     onClick={handleSignIn}
                 />
 
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>{success}</p>}
+                {toast && <Toast message={toast.message} type={toast.type} />}
             </LoginHomeModel>
         </div>
     )

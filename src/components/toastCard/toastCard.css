@@ -1,0 +1,26 @@
+/* src/components/toast/toast.css */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: white;
+  z-index: 1000;
+  font-weight: bold;
+  animation: fadeOut 3s ease forwards;
+}
+
+.toast.success {
+  background-color: #4CAF50; /* verde */
+}
+
+.toast.error {
+  background-color: #f44336; /* vermelho */
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translateY(0); }
+  70% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}

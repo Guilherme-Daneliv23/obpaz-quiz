@@ -4,77 +4,90 @@ import { FormField } from '../../components/formField/formField'
 import { Button } from '../../components/button/button'
 import { supabase } from '../../lib/supabaseClient'
 import { useState } from 'react'
+import { Toast } from '../../components/toastCard/toastCard'
 
 export const SingUpScreen = () => {
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-    const [error, setError] = useState('')
-    const [success, setSuccess] = useState('')
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
 
-    const handleSignUp = async () => {
-        if (!nome || !email || !senha) {
-            setError("Preencha todos os campos");
-            return;
-        }
-        setError('')
-        setSuccess('')
+  const handleSignUp = async () => {
+    setToast(null)
 
-        const {data, error} = await supabase.auth.signUp({
-            email: email,
-            password: senha,
-            options: {
-                data: {
-                    nome: nome,
-                },
-            },
-        })
-        
-
-        if(error) { 
-            setError(error.message) 
-        } else { 
-            setSuccess("Cadastro realizado com sucesso! Agora vá até o seu email para confirma-lo e fazer o login!"); 
-        }
+    // Validação de campos obrigatórios
+    if (!nome.trim() || !email.trim() || !senha.trim()) {
+      setToast({
+        message: 'Por favor, preencha todos os campos antes de continuar.',
+        type: 'error'
+      })
+      return
     }
 
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: senha,
+      options: {
+        data: {
+          nome: nome,
+        },
+      },
+    })
 
-    return (
-        <div className='singUp_screen'>
-            <LoginHomeModel>
-                <FormField
-                    borderColor='#38B6FF'
-                    type='text'
-                    placeholder='Nome'
-                    value={nome}
-                    onChange={(e : any) => setNome(e.target.value)}
-                />
+    if (error) {
+      // Tradução de mensagens de erro
+      let friendlyMessage = 'Erro ao tentar realizar o cadastro. Tente novamente.'
 
-                <FormField
-                    borderColor='#38B6FF'
-                    type='email'
-                    placeholder='Email'
-                    value={email}
-                    onChange={(e : any) => setEmail(e.target.value)}
-                />
+      if (error.message.includes('User already registered')) {
+        friendlyMessage = 'Este e-mail já está cadastrado.'
+      } else if (error.message.includes('Password should be at least')) {
+        friendlyMessage = 'A senha deve conter pelo menos 6 caracteres.'
+      }
 
-                <FormField
-                    borderColor='#38B6FF'
-                    type='password'
-                    placeholder='Senha'
-                    value={senha}
-                    onChange={(e : any) => setSenha(e.target.value)}
-                />
+      setToast({ message: friendlyMessage, type: 'error' })
+    } else {
+      setToast({
+        message: 'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar.',
+        type: 'success'
+      })
+    }
+  }
 
-                <Button
-                    backgroundColor='#38B6FF'
-                    texto='Cadastrar'
-                    onClick={handleSignUp}
-                />
+  return (
+    <div className='singUp_screen'>
+      <LoginHomeModel>
+        <FormField
+          borderColor='#38B6FF'
+          type='text'
+          placeholder='Nome'
+          value={nome}
+          onChange={(e: any) => setNome(e.target.value)}
+        />
 
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>{success}</p>}
-            </LoginHomeModel>
-        </div>
-    )
+        <FormField
+          borderColor='#38B6FF'
+          type='email'
+          placeholder='Email'
+          value={email}
+          onChange={(e: any) => setEmail(e.target.value)}
+        />
+
+        <FormField
+          borderColor='#38B6FF'
+          type='password'
+          placeholder='Senha'
+          value={senha}
+          onChange={(e: any) => setSenha(e.target.value)}
+        />
+
+        <Button
+          backgroundColor='#38B6FF'
+          texto='Cadastrar'
+          onClick={handleSignUp}
+        />
+
+        {toast && <Toast message={toast.message} type={toast.type} />}
+      </LoginHomeModel>
+    </div>
+  )
 }
