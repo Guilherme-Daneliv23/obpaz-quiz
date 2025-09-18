@@ -24,6 +24,28 @@ export const SingUpScreen = () => {
       return
     }
 
+    const { data: existingName, error: nameError } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('full_name', nome)
+      .maybeSingle()
+
+    if (nameError) {
+      setToast({
+        message: 'Erro ao verificar nome. Tente novamente.',
+        type: 'error'
+      })
+      return
+    }
+
+    if (existingName) {
+      setToast({
+        message: 'Este nome de usuário já está em uso. Escolha outro.',
+        type: 'error'
+      })
+      return
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: senha,

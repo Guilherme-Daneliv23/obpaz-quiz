@@ -18,13 +18,13 @@ export const CreditsScreen = () => {
                     <CreditsCard
                         imageCredit={gui_image}
                         text="Eu sou Guilherme Daneliv um dos criadores da primeira versão desse jogo e criador dessa adaptação do jogo para tratar sobre Cultura de Paz tema do projeto em que atuo como voluntário"
-                        linkHref="#"
+                        linkHref="https://www.linkedin.com/in/guilherme-daneliv-8b40372aa/"
                     />
                     
                     <CreditsCard
                         imageCredit={robloxia_image}
                         text="Confira aqui também a primeira versão do jogo e quem participou dessa criação!"
-                        linkHref="#"
+                        linkHref="https://guilherme-daneliv23.github.io/RobloxIA/"
                     />
                 </div>
 
