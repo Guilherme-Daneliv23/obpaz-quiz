@@ -11,7 +11,7 @@
     color: #222222;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 922px) {
     .form_input {
         width: 294px;
         height: 80px;

@@ -24,7 +24,7 @@
     color: #38B6FF;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 922px) {
     .finalGame_button-align {
         flex-direction: row;
         justify-content: space-around;
