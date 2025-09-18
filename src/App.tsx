@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 //Telas
 import { InitialScreen } from './screens/initialScreen/initialScreen'
@@ -14,7 +14,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter basename="/obpaz-quiz">
+    <Router>
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/cadastro" element={<SingUpScreen />} />
@@ -26,7 +26,7 @@ function App() {
         <Route path="/articles" element={<ArticlesScreen />} />
         <Route path="/credits" element={<CreditsScreen />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   )
 }
 

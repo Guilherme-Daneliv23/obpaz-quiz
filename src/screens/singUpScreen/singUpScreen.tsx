@@ -5,12 +5,15 @@ import { Button } from '../../components/button/button'
 import { supabase } from '../../lib/supabaseClient'
 import { useState } from 'react'
 import { Toast } from '../../components/toastCard/toastCard'
+import { useNavigate } from 'react-router-dom'
 
 export const SingUpScreen = () => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
+
+  const navigate = useNavigate()
 
   const handleSignUp = async () => {
     setToast(null)
@@ -69,9 +72,10 @@ export const SingUpScreen = () => {
       setToast({ message: friendlyMessage, type: 'error' })
     } else {
       setToast({
-        message: 'Cadastro realizado com sucesso! Verifique seu e-mail para confirmar.',
+        message: 'Cadastro realizado com sucesso! Redirecionando para login...',       
         type: 'success'
       })
+      setTimeout(() => navigate('/login'), 2000)
     }
   }
 
